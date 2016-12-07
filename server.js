@@ -9,6 +9,7 @@ const routes = require('./routes')
 const artistRouterFile = routes.artistRouterFile
 const songRouterFile = routes.songRouterFile
 const playlistRouterFile = routes.playlistRouterFile
+const genreRouterFile = routes.genreRouterFile
 
 
 
@@ -28,4 +29,10 @@ app.listen('9999', () => console.log('Listening on port 9999'));
 app.use('/api/artists', artistRouterFile);
 app.use('/api/songs', songRouterFile);
 app.use('/api/playlists', playlistRouterFile);
-// app.use('/api/genres', genreRouterFile);
+app.use('/api/genres', genreRouterFile);
+
+
+//this will basically make your express server send back your React frontend app (which is loaded when you send index.html) whenever anyone navigates to any URL that's not caught by your API.
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/front/index.html'));
+});

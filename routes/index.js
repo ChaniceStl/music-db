@@ -1,11 +1,13 @@
 const artist= require('./artist-router.js');
 const song = require('./song-router.js');
 const playlist = require('./playlist-router.js');
+const genre = require('./genre-router.js')
 
 module.exports ={
 	artistRouterFile: artist,
 	songRouterFile: song,
-	playlistRouterFile: playlist
+	playlistRouterFile: playlist,
+	genreRouterFile: genre
 }
 
 //?: in the server it we guide it to the routes folder.
